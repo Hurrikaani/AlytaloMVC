@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="älytalodbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Lampo">
+          <Key>
+            <PropertyRef Name="LampoId" />
+          </Key>
+          <Property Name="LampoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TalonTavoiteLampotila" Type="nvarchar" MaxLength="50" />
+          <Property Name="TalonNykyLampotila" Type="nvarchar" MaxLength="50" />
+          <Property Name="LampotilaAsetettu" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sauna">
+          <Key>
+            <PropertyRef Name="SaunaId" />
+          </Key>
+          <Property Name="SaunaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SaunanTila" Type="bit" Nullable="false" />
+          <Property Name="SaunanNykyLampotila" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaunaStart" Type="datetime" />
+          <Property Name="SaunaStop" Type="datetime" />
+          <Property Name="SaunanNimi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Valot">
+          <Key>
+            <PropertyRef Name="ValoId" />
+          </Key>
+          <Property Name="ValoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ValoOff" Type="bit" Nullable="false" />
+          <Property Name="Valo33" Type="bit" Nullable="false" />
+          <Property Name="Valo66" Type="bit" Nullable="false" />
+          <Property Name="Valo100" Type="bit" Nullable="false" />
+          <Property Name="ValoOffAika" Type="datetime" />
+          <Property Name="Valo33Aika" Type="datetime" />
+          <Property Name="Valo66AIka" Type="datetime" />
+          <Property Name="valo100Aika" Type="datetime" />
+          <Property Name="HuoneValo" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="älytalodbModelStoreContainer">
+          <EntitySet Name="Lampo" EntityType="Self.Lampo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sauna" EntityType="Self.Sauna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Valot" EntityType="Self.Valot" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="älytalodbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="älytalodbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Lampo" EntityType="älytalodbModel.Lampo" />
+          <EntitySet Name="Sauna" EntityType="älytalodbModel.Sauna" />
+          <EntitySet Name="Valot" EntityType="älytalodbModel.Valot" />
+        </EntityContainer>
+        <EntityType Name="Lampo">
+          <Key>
+            <PropertyRef Name="LampoId" />
+          </Key>
+          <Property Name="LampoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TalonTavoiteLampotila" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TalonNykyLampotila" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LampotilaAsetettu" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Sauna">
+          <Key>
+            <PropertyRef Name="SaunaId" />
+          </Key>
+          <Property Name="SaunaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SaunanTila" Type="Boolean" Nullable="false" />
+          <Property Name="SaunanNykyLampotila" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SaunaStart" Type="DateTime" Precision="3" />
+          <Property Name="SaunaStop" Type="DateTime" Precision="3" />
+          <Property Name="SaunanNimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Valot">
+          <Key>
+            <PropertyRef Name="ValoId" />
+          </Key>
+          <Property Name="ValoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ValoOff" Type="Boolean" Nullable="false" />
+          <Property Name="Valo33" Type="Boolean" Nullable="false" />
+          <Property Name="Valo66" Type="Boolean" Nullable="false" />
+          <Property Name="Valo100" Type="Boolean" Nullable="false" />
+          <Property Name="ValoOffAika" Type="DateTime" Precision="3" />
+          <Property Name="Valo33Aika" Type="DateTime" Precision="3" />
+          <Property Name="Valo66AIka" Type="DateTime" Precision="3" />
+          <Property Name="valo100Aika" Type="DateTime" Precision="3" />
+          <Property Name="HuoneValo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="älytalodbModelStoreContainer" CdmEntityContainer="älytalodbEntities">
+          <EntitySetMapping Name="Lampo">
+            <EntityTypeMapping TypeName="älytalodbModel.Lampo">
+              <MappingFragment StoreEntitySet="Lampo">
+                <ScalarProperty Name="LampotilaAsetettu" ColumnName="LampotilaAsetettu" />
+                <ScalarProperty Name="TalonNykyLampotila" ColumnName="TalonNykyLampotila" />
+                <ScalarProperty Name="TalonTavoiteLampotila" ColumnName="TalonTavoiteLampotila" />
+                <ScalarProperty Name="LampoId" ColumnName="LampoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sauna">
+            <EntityTypeMapping TypeName="älytalodbModel.Sauna">
+              <MappingFragment StoreEntitySet="Sauna">
+                <ScalarProperty Name="SaunanNimi" ColumnName="SaunanNimi" />
+                <ScalarProperty Name="SaunaStop" ColumnName="SaunaStop" />
+                <ScalarProperty Name="SaunaStart" ColumnName="SaunaStart" />
+                <ScalarProperty Name="SaunanNykyLampotila" ColumnName="SaunanNykyLampotila" />
+                <ScalarProperty Name="SaunanTila" ColumnName="SaunanTila" />
+                <ScalarProperty Name="SaunaId" ColumnName="SaunaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Valot">
+            <EntityTypeMapping TypeName="älytalodbModel.Valot">
+              <MappingFragment StoreEntitySet="Valot">
+                <ScalarProperty Name="HuoneValo" ColumnName="HuoneValo" />
+                <ScalarProperty Name="valo100Aika" ColumnName="valo100Aika" />
+                <ScalarProperty Name="Valo66AIka" ColumnName="Valo66AIka" />
+                <ScalarProperty Name="Valo33Aika" ColumnName="Valo33Aika" />
+                <ScalarProperty Name="ValoOffAika" ColumnName="ValoOffAika" />
+                <ScalarProperty Name="Valo100" ColumnName="Valo100" />
+                <ScalarProperty Name="Valo66" ColumnName="Valo66" />
+                <ScalarProperty Name="Valo33" ColumnName="Valo33" />
+                <ScalarProperty Name="ValoOff" ColumnName="ValoOff" />
+                <ScalarProperty Name="ValoId" ColumnName="ValoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

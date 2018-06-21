@@ -1,0 +1,48 @@
+﻿@model AlytaloMVC.Models.Lampo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Lampo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TalonTavoiteLampotila)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TalonTavoiteLampotila)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TalonNykyLampotila)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TalonNykyLampotila)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LampotilaAsetettu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LampotilaAsetettu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

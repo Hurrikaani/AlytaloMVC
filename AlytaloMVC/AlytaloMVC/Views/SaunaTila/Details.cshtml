@@ -1,0 +1,50 @@
+﻿@model AlytaloMVC.Models.Sauna
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sauna</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunanNykyLampotila)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunanNykyLampotila)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunaStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunaStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunaStop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunaStop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaunanNimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaunanNimi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

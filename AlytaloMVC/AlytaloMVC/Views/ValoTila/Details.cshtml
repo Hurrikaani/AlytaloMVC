@@ -1,0 +1,58 @@
+﻿@model AlytaloMVC.Models.Valot
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Valot</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ValoOffAika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValoOffAika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valo33Aika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valo33Aika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valo66AIka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valo66AIka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valo100Aika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valo100Aika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HuoneValo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HuoneValo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

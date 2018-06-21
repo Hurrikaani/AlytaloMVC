@@ -1,0 +1,42 @@
+﻿@model AlytaloMVC.Models.Lampo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lampo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TalonTavoiteLampotila)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TalonTavoiteLampotila)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TalonNykyLampotila)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TalonNykyLampotila)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LampotilaAsetettu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LampotilaAsetettu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LampoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

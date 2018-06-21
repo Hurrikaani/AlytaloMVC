@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AlytaloMVC.Models.Lampo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TalonTavoiteLampotila)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TalonNykyLampotila)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LampotilaAsetettu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TalonTavoiteLampotila)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TalonNykyLampotila)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LampotilaAsetettu)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LampoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LampoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LampoId })
+        </td>
+    </tr>
+}
+
+</table>
