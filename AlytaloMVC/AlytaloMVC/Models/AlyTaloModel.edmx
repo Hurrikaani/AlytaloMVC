@@ -25,6 +25,14 @@
           <Property Name="SaunaStop" Type="datetime" />
           <Property Name="SaunanNimi" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Valot">
           <Key>
             <PropertyRef Name="ValoId" />
@@ -43,6 +51,7 @@
         <EntityContainer Name="älytalodbModelStoreContainer">
           <EntitySet Name="Lampo" EntityType="Self.Lampo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sauna" EntityType="Self.Sauna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Valot" EntityType="Self.Valot" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -52,6 +61,7 @@
         <EntityContainer Name="älytalodbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Lampo" EntityType="älytalodbModel.Lampo" />
           <EntitySet Name="Sauna" EntityType="älytalodbModel.Sauna" />
+          <EntitySet Name="Users" EntityType="älytalodbModel.Users" />
           <EntitySet Name="Valot" EntityType="älytalodbModel.Valot" />
         </EntityContainer>
         <EntityType Name="Lampo">
@@ -73,6 +83,14 @@
           <Property Name="SaunaStart" Type="DateTime" Precision="3" />
           <Property Name="SaunaStop" Type="DateTime" Precision="3" />
           <Property Name="SaunanNimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Valot">
           <Key>
@@ -114,6 +132,15 @@
                 <ScalarProperty Name="SaunanNykyLampotila" ColumnName="SaunanNykyLampotila" />
                 <ScalarProperty Name="SaunanTila" ColumnName="SaunanTila" />
                 <ScalarProperty Name="SaunaId" ColumnName="SaunaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="älytalodbModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -7,7 +7,9 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("Back to menu", "Index", "Home")
+
 </p>
 <table class="table">
     <tr>
@@ -41,45 +43,48 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ValoOffAika)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valo33Aika)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valo66AIka)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valo100Aika)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HuoneValo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ValoOff)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valo33)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valo66)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valo100)
-        </td>
-        <td>
-            @Html.ActionLink("33", "Valo33", new { id = item.ValoId }) |
-            @Html.ActionLink("66", "Valo66", new { id = item.ValoId }) |
-            @Html.ActionLink("100", "Valo100", new { id = item.ValoId }) |
-            @Html.ActionLink("Off", "ValoOff", new { id = item.ValoId }) |
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.PrimaryKey  }) |
-        @Html.ActionLink("Details", "Details", new { id=item.PrimaryKey  }) |
-        @Html.ActionLink("Delete", "Delete", new { id=item.PrimaryKey })*@
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValoOffAika)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valo33Aika)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valo66AIka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valo100Aika)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HuoneValo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValoOff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valo33)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valo66)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valo100)
+            </td>
+            <td>
+                @Html.ActionLink("33", "Valo33", new { id = item.ValoId }) |
+                @Html.ActionLink("66", "Valo66", new { id = item.ValoId }) |
+                @Html.ActionLink("100", "Valo100", new { id = item.ValoId }) |
+                @Html.ActionLink("Off", "ValoOff", new { id = item.ValoId }) |
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.PrimaryKey  }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.PrimaryKey  }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.PrimaryKey })*@
+            </td>
+        </tr>
+   
+
+    }
 
 </table>

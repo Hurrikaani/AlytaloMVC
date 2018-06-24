@@ -27,6 +27,7 @@ namespace AlytaloMVC.Models
     
         public virtual DbSet<Lampo> Lampo { get; set; }
         public virtual DbSet<Sauna> Sauna { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Valot> Valot { get; set; }
     }
 }
