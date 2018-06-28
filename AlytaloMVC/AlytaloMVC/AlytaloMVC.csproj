@@ -185,6 +185,7 @@
       <DependentUpon>AlyTaloModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LampotilaViewModel.cs" />
     <Compile Include="ViewModels\SaunaVIewModel.cs" />
     <Compile Include="ViewModels\UserDataViewModel.cs" />
     <Compile Include="ViewModels\ValoViewModel.cs" />
@@ -272,6 +273,8 @@
     <Content Include="Views\ValoTila\Valo100.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\SaunaTila\SaunaOff.cshtml" />
+    <Content Include="Views\SaunaTila\SaunaOn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

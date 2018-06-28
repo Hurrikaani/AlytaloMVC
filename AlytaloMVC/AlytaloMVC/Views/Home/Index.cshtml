@@ -5,15 +5,15 @@
 <div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="/LampoTila" class="btn btn-primary btn-lg">LampoTila &raquo;</a></p>
-    <p><a href="/SaunaTila" class="btn btn-primary btn-lg">SaunaTila &raquo;</a></p>
+    <p><a href="/LampoTila/Index" class="btn btn-primary btn-lg">LampoTila &raquo;</a></p>
+    <p><a href="/SaunaTila/Index" class="btn btn-primary btn-lg">SaunaTila &raquo;</a></p>
     <p><a href="/ValoTila/Index" class="btn btn-primary btn-lg">ValoTila &raquo;</a></p>
 </div>
 
 @if (Session["username"] != null)
 {
     <h3>
-        Welcome, @Session["username"].ToString() @Html.ActionLink("Logout", "Logout", "Home")
+        Welcome, <strong>@Session["username"].ToString() <button class="btn nappula";">@Html.ActionLink("Logout", "Logout", "Home")</button></strong>
         @ViewBag.Success
     </h3>
 }

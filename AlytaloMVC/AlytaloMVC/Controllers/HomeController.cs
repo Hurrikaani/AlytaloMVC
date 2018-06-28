@@ -45,6 +45,7 @@ namespace AlytaloMVC.Controllers
                     {
                         Session["username"] = log.UserName;
                         return RedirectToAction("Index", "Home");
+                
                     }
                     else
                     {

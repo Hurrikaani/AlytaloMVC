@@ -8,6 +8,7 @@
 
 <p>
     @Html.ActionLink("Create New", "Create") |
+
     @Html.ActionLink("Back to menu", "Index", "Home")
 
 </p>
@@ -78,9 +79,9 @@
                 @Html.ActionLink("66", "Valo66", new { id = item.ValoId }) |
                 @Html.ActionLink("100", "Valo100", new { id = item.ValoId }) |
                 @Html.ActionLink("Off", "ValoOff", new { id = item.ValoId }) |
-                @*@Html.ActionLink("Edit", "Edit", new { id=item.PrimaryKey  }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.PrimaryKey  }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.PrimaryKey })*@
+                @Html.ActionLink("Edit", "Edit", new { id=item.ValoId  }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ValoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ValoId })
             </td>
         </tr>
    

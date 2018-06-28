@@ -135,12 +135,25 @@ namespace AlytaloMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Valot valot = db.Valot.Find(id);
-            if (valot == null)
+            Valot valo = db.Valot.Find(id);
+            if (valo == null)
             {
                 return HttpNotFound();
             }
-            return View(valot);
+
+            ValoViewModel view = new ValoViewModel();
+            view.ValoId = valo.ValoId;
+            view.Valo33 = valo.Valo33;
+            view.Valo66 = valo.Valo66;
+            view.Valo100 = valo.Valo100;
+            view.Valo33Aika = valo.Valo33Aika;
+            view.Valo66AIka = valo.Valo66AIka;
+            view.valo100Aika = valo.valo100Aika;
+            view.ValoOff = valo.ValoOff;
+            view.HuoneValo = valo.HuoneValo;
+            view.ValoOffAika = valo.ValoOffAika;
+
+            return View(view);
         }
 
         // POST: ValoTila/Delete/5

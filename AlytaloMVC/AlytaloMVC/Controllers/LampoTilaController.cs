@@ -7,56 +7,71 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AlytaloMVC.Models;
+using AlytaloMVC.ViewModels;
 
 namespace AlytaloMVC.Controllers
 {
+
     public class LampoTilaController : Controller
     {
         private älytalodbEntities db = new älytalodbEntities();
-
-        // GET: LampoTila
         public ActionResult Index()
         {
-            return View(db.Lampo.ToList());
+            List<LampotilaViewModel> model = new List<LampotilaViewModel>();
+            älytalodbEntities entities = new älytalodbEntities();
+            try
+            {
+                List<Lampo> lamp = entities.Lampo.OrderByDescending(Lampo => Lampo.LampoId).ToList();
+                foreach (Lampo lam in lamp)
+                {
+                    LampotilaViewModel view = new LampotilaViewModel();
+                    view.LampoId = lam.LampoId;
+                    view.TalonTavoiteLampotila = lam.TalonTavoiteLampotila;
+                    view.TalonNykyLampotila = lam.TalonNykyLampotila;
+                    view.LampotilaAsetettu = lam.LampotilaAsetettu;
+                    model.Add(view);
+                }
+            }
+            finally
+            {
+                entities.Dispose();
+            }
+            return View(model);
         }
 
-        // GET: LampoTila/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Lampo lampo = db.Lampo.Find(id);
-            if (lampo == null)
-            {
-                return HttpNotFound();
-            }
-            return View(lampo);
-        }
-
-        // GET: LampoTila/Create
         public ActionResult Create()
         {
-            return View();
+            älytalodbEntities db = new älytalodbEntities();
+            LampotilaViewModel model = new LampotilaViewModel();
+
+            return View(model);
         }
 
-        // POST: LampoTila/Create
+        // POST: SaunaTila/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LampoId,TalonTavoiteLampotila,TalonNykyLampotila,LampotilaAsetettu")] Lampo lampo)
+        public ActionResult Create(LampotilaViewModel model)
         {
-            if (ModelState.IsValid)
+            Lampo view = new Lampo();
+            view.LampoId = model.LampoId;
+            view.TalonTavoiteLampotila = model.TalonTavoiteLampotila;
+            view.TalonNykyLampotila = model.TalonNykyLampotila;
+            view.LampotilaAsetettu = DateTime.Now;
+            db.Lampo.Add(view);
+            try
             {
-                db.Lampo.Add(lampo);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
+            catch (Exception ex)
+            {
 
-            return View(lampo);
+
+            }
+            return RedirectToAction("Index");
         }
+
 
         // GET: LampoTila/Edit/5
         public ActionResult Edit(int? id)

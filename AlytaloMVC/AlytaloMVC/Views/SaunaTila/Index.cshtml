@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AlytaloMVC.Models.Sauna>
+﻿@model IEnumerable<AlytaloMVC.ViewModels.SaunaVIewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.SaunanNimi)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaunanTila)
+        </th>
         <th></th>
     </tr>
 
@@ -41,9 +44,14 @@
             @Html.DisplayFor(modelItem => item.SaunanNimi)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.SaunanTila)
+        </td>
+        <td>
+            @Html.ActionLink("Off", "SaunaOff", new { id = item.SaunaId })
+            @Html.ActionLink("On", "SaunaOn", new { id = item.SaunaId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.SaunaId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SaunaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SaunaId })
         </td>
     </tr>
 }
